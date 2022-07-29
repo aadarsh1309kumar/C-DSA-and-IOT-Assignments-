@@ -1,32 +1,33 @@
-/*
-1 2 3 4 3 2 1
-1 2 3   3 2 1
-1 2        2 1
-1             1
-*/
+// 10. C program to find all roots of a quadratic equation using switch case
 #include<stdio.h>
+#include<math.h>
 int main() {
-    int num, temp;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    int k = num+1;
-    for(int i=1; i<=num; i++) {
-        temp = 1;
-        for(int j=1; j<=num+(num-1); j++) {
-            if(j<= (num+1)-i || j>=k-i) {
-                printf("%d ", temp);
-            } else {
-                printf("  ");
-            }
-            if(j<num) {
-                temp++;
-            } 
-            else {
-                temp--;
-            }
-        }
-        k = k+2;
-        printf("\n");
+    int a, b, c, D;
+    int root1=0, root2=0;
+
+    printf("Enter the value of a,b and c of a quadratic equation: ");
+    scanf("%d %d %d", &a, &b, &c);
+    D = (b * b) - (4 * a * c);
+    switch (D > 0)
+    {
+    case 1:
+        root1 = (-b + sqrt(D)) / (2 * a);
+        root2 = (-b - sqrt(D)) / (2 * a);
+        break;
+    case 0: switch (D < 0)
+    {
+    case 1:
+        root1 = (-b + sqrt(abs(D))) / (2 * a);
+        root2 = (-b - sqrt(abs(D))) / (2 * a);
+        break;
+    case 0:
+        root1 = -b / (2 * a);
+        root2 = -b / (2 * a);
     }
+    default:
+        break;
+    }
+    printf("Roots are %d and %d", root1, root2);
+
     return 0;
 }

@@ -1,33 +1,26 @@
-/*
-            1
-          1 2 1
-        1 2 3 2 1
-*/
+// 8. Program to convert a positive number into a negative number and negative
+// number into a positive number using a switch statement.
 #include<stdio.h>
+void greeting(int);
 int main() {
-    int num, temp;
+    int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-
-    int k = num + 1, l = k;;
-    for (int i = 1; i <= num; i++) {
-        temp = 1;
-        for (int j = 1; j <= num + (num - 1); j++) {
-            if (j >= k - i && j <= l - i) {
-                printf("%d", temp);
-                if (j < num) {
-                    temp++;
-                } else {
-                    temp--;
-                }
-                    
-            }
-            else {
-                printf(" ");
-            }
-        }
-        l = l + 2;
-        printf("\n");
+    switch (num - 0 > 0)
+    {
+    case 1:
+        num = num * -1;
+        greeting(num);
+        break;
+    case 0:
+        num = num * -1;
+        greeting(num);
+    default:
+        break;
     }
     return 0;
+}
+
+void greeting(int num) {
+    printf("After changing number is %d", num);
 }
