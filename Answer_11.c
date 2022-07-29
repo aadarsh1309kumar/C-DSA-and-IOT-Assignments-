@@ -1,7 +1,9 @@
 /*
-            1
-          1 2 1
-        1 2 3 2 1
+         A
+      A B A
+    A B C B A
+  A B C D C B A
+A B C D E D C B A
 */
 #include<stdio.h>
 int main() {
@@ -11,19 +13,20 @@ int main() {
 
     int k = num + 1, l = k;;
     for (int i = 1; i <= num; i++) {
-        temp = 1;
+        temp = 'A';
         for (int j = 1; j <= num + (num - 1); j++) {
             if (j >= k - i && j <= l - i) {
-                printf("%d", temp);
+                printf("%c ", temp);
                 if (j < num) {
                     temp++;
-                } else {
+                }
+                else {
                     temp--;
                 }
-                    
+
             }
             else {
-                printf(" ");
+                printf("  ");
             }
         }
         l = l + 2;

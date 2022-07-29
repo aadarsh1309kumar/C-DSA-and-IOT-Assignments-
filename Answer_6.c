@@ -1,18 +1,23 @@
-// 6. Write a program to print all Prime numbers under 100
+/*
+* * * * *
+  * * *
+    *
+*/
 #include<stdio.h>
 int main() {
-    int temp = 0, i, j;
-    for (i = 2; i <= 100; i++) {
-        temp = 0;
-            for (j = 2; j < i; j++) {
-                if (!(i % j)) {
-                    temp++;
-                    break;
-                }
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    
+    for(int i=1; i<=num; i++) {
+        for(int j=1; j<=num*2-1; j++) {
+            if(j>=i && j<= num*2-i) {
+                printf("*");
+            } else {
+                printf(" ");
             }
-            if (!(temp == 1)) {
-                printf("%d ", i);
-            }
+        }
+        printf("\n");
     }
     return 0;
 }

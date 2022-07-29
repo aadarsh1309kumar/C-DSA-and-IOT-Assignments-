@@ -1,20 +1,22 @@
-// 1. Write a program to find the Nth term of the Fibonnaci series.
-//  1 1 2 3 5 8 13 ....
+// Write a program to draw the following patterns:
+/*
+    *
+    * *
+    * * *
+    * * * *
+    * * * * *
+*/
 #include<stdio.h>
 int main() {
-    int num;
-    int num1 =1, num2 = 1, sum = 0;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    if(num == 1 || num == 2) {
-        printf("1");
-    } else {
-        for(int i=3; i<= num; i++) {
-            sum = num1 + num2;
-            num1 = num2;
-            num2 = sum;
+    for(int i=1; i<=5; i++) {
+        for(int j=1; j<=5; j++) {
+            if(j<=i) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
         }
-        printf("The %dth term of Fibonnaci Series is %d", num, sum);
+        printf("\n");
     }
-return 0;
+    return 0;
 }
