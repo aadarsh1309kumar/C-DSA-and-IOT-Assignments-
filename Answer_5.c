@@ -1,24 +1,22 @@
-// 5. Write a recursive function to print first N even natural numbers
+// 5. Write a recursive function to calculate sum of digits of a given number
 #include<stdio.h>
 
 //  Function Declaration
-void printEvenNaturalNum(int);
+int sumOfDigitOfANumber(int);
 
 // main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printEvenNaturalNum(num);
+    printf("The sum of digit of %d is %d", num, sumOfDigitOfANumber(num));
     return 0;
 }
 
 //  Function start
-void printEvenNaturalNum(int N) {
-    if (N > 0) {
-        printEvenNaturalNum(N - 1);
-        printf("%d ", 2 * N);
+int sumOfDigitOfANumber(int N) {
+    if (N > 1) {
+        return (N%10) + sumOfDigitOfANumber(N/10);
     }
+
 }
-Footer
-© 2022 GitHub, I

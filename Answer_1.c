@@ -1,22 +1,21 @@
-//  1. Write a recursive function to print first N natural numbers
+// 1. Write a recursive function to calculate sum of first N natural numbers
 #include<stdio.h>
 
-//  Function Declaration
-void printNNaturalNum(int);
+//  Function declaration
+int sumOfNNaturalNum(int);
 
-// main function
+//  main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printNNaturalNum(num); 
+    printf("The sum from 1 to %d is %d", num, sumOfNNaturalNum(num));
     return 0;
 }
 
-//  Function start
-void printNNaturalNum(int N) {
-    if(N > 0) {
-        printNNaturalNum(N -1);
-        printf("%d ", N);
-    }
+//  function start
+int sumOfNNaturalNum(int n) {
+    if (n == 1)
+        return 1;
+    return n + sumOfNNaturalNum(n - 1);
 }

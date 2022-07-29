@@ -1,22 +1,21 @@
-// 6. Write a recursive function to print first N even natural numbers in reverse order
+// 6. Write a recursive function to calculate factorial of a given number
 #include<stdio.h>
 
-//  Function Declaration
-void printEvenNaturalNumInReverse(int);
+//  Function declaration
+int factorialOfANumber(int);
 
-// main function
+//  main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printEvenNaturalNumInReverse(num);
+    printf("The factorial %d is %d", num, factorialOfANumber(num));
     return 0;
 }
 
-//  Function start
-void printEvenNaturalNumInReverse(int N) {
-    if (N > 0) {
-        printf("%d ", 2 * N);
-        printEvenNaturalNumInReverse(N - 1);
-    }
+//  function start
+int factorialOfANumber(int n) {
+    if (n == 1 || n == 0)
+        return 1;
+    return n* + factorialOfANumber(n - 1);
 }

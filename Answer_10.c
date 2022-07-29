@@ -1,23 +1,24 @@
-// 10. Write a recursive function to print reverse of a given number
+// 10. Write a program in C to calculate the power of any number using recursion.
 #include<stdio.h>
 
-// Function Declaration
-void reverseOfANumber(int);
+//  function declaration
+int calculatePower(int, int);
 
 // main function
 int main() {
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    reverseOfANumber(num);
+    int base, power;
+    printf("Enter the value of base and power in \"base^power\" format: ");
+    scanf("%d^%d", &base, &power);
+    printf("%d^%d=%d", base, power, calculatePower(base, power));
     return 0;
 }
 
-// Function Start
-void reverseOfANumber(int num) {
-    if (num > 0) {
-        printf("%d", num % 10);
-        reverseOfANumber(num / 10);
-    }
-
+//  function start
+int product = 1;
+int calculatePower(int base, int power) {
+    if(power == 0)
+        return 1;
+    product *= base;
+    calculatePower(base, power-1);
+    return product;
 }

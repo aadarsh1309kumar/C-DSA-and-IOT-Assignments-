@@ -1,24 +1,26 @@
-// 9. Write a recursive function to print octal of a given decimal number
+// 9. Write a program in C to count the digits of a given number using recursion.
 #include<stdio.h>
 
-// Function Declaration
-void octalOfANumber(int);
+//  function  declaration
+int digitCount(int);
 
-// main function
+//  main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    octalOfANumber(num);
+    printf("The digit of %d is %d", num, digitCount(num));
     return 0;
 }
 
-// Function Start
-void octalOfANumber(int num) {
-    if (num == 1)
-        printf("1");
-    else {
-        octalOfANumber(num / 8);
-        printf("%d", num % 8);
+//  function start
+int count = 0;
+int digitCount(int number) {
+    if (number > 0)
+    {
+        count++;
+        digitCount(number / 10);
+        return count;
     }
+
 }
