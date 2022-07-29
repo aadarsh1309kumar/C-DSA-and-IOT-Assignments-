@@ -1,34 +1,22 @@
-// 4. Write a function to find the next prime number of a given number. (TSRS)
+// 4. Write a recursive function to print first N odd natural numbers in reverse order
 #include<stdio.h>
 
-//  function declaration
-int nextPrimeNumber(int);
+//  Function Declaration
+void printOddNaturalNumInReverse(int);
 
-//  main function
+// main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printf("The next prime number of %d is %d", num,nextPrimeNumber(num));
+    printOddNaturalNumInReverse(num);
     return 0;
 }
 
-//  function to print next Prime number
-int nextPrimeNumber(int number) {
-    int temp = 0, i, j;
-
-    for (i = number + 1; i >= 2; i++) {
-
-        temp = 0;
-        for (j = 2; j < i/2; j++) {
-            if (!(i % j)) {
-                temp++;
-                break;
-            }
-        }
-        if (!(temp == 1)) {
-            return i;
-            break;
-        }
+//  Function start
+void printOddNaturalNumInReverse(int N) {
+    if (N > 0) {
+        printf("%d ", 2 * N - 1);
+        printOddNaturalNumInReverse(N - 1);
     }
 }

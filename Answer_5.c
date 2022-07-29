@@ -1,32 +1,24 @@
-// 5. Write a function to print first N prime numbers (TSRN)
+// 5. Write a recursive function to print first N even natural numbers
 #include<stdio.h>
 
-// function declaration 
-void printFirstNPrimeNumber(int);
+//  Function Declaration
+void printEvenNaturalNum(int);
 
+// main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printFirstNPrimeNumber(num);
+    printEvenNaturalNum(num);
     return 0;
 }
 
-void printFirstNPrimeNumber(int number)
-{
-    int temp = 0, i = 2, j;
-    while (number >= 1) {
-        temp = 0;
-        for (j = 2; j < i; j++) {
-            if (!(i % j)) {
-                temp++;
-                break;
-            }
-        }
-        if (!(temp == 1)) {
-            printf("%d ", i);
-            number--;
-        }
-        i++;
+//  Function start
+void printEvenNaturalNum(int N) {
+    if (N > 0) {
+        printEvenNaturalNum(N - 1);
+        printf("%d ", 2 * N);
     }
 }
+Footer
+© 2022 GitHub, I

@@ -1,14 +1,22 @@
-// 7. Write a function to print first N terms of Fibonacci series (TSRN)
+// 7. Write a recursive function to print squares of first N natural numbers
 #include<stdio.h>
 
-// Function declaration
-void printFibonacciSeries(int);
+//  Function Declaration
+void printSquareofNaturalNum(int);
 
-// main fuction
+// main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printFibonacciSeries(num);
+    printSquareofNaturalNum(num);
     return 0;
+}
+
+//  Function start
+void printSquareofNaturalNum(int N) {
+    if (N > 0) {
+        printSquareofNaturalNum(N - 1);
+        printf("%d ", N * N);
+    }
 }

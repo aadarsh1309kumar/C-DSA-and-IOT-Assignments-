@@ -1,31 +1,22 @@
-// 6. Write a function to print all Prime numbers between two given numbers. (TSRN)
+// 6. Write a recursive function to print first N even natural numbers in reverse order
 #include<stdio.h>
 
-//  Function declaration
-void printPrimeNumbersBetTwoGivenNum(int, int);
+//  Function Declaration
+void printEvenNaturalNumInReverse(int);
 
 // main function
 int main() {
-    int num1,num2;
-    printf("Enter two number: ");
-    scanf("%d %d", &num1, &num2);
-    printPrimeNumbersBetTwoGivenNum(num1,num2);
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printEvenNaturalNumInReverse(num);
     return 0;
 }
 
-//  function creation
-void printPrimeNumbersBetTwoGivenNum(int num1, int num2) {
-    int flag = 0, i, j;
-    for (i = num1 + 1; i < num2; i++) {
-        flag = 0;
-        for (j = 2; j < i; j++) {
-            if (!(i % j)) {
-                flag++;
-                break;
-            }
-        }
-        if (!(flag == 1)) {
-            printf("%d ", i);
-        }
+//  Function start
+void printEvenNaturalNumInReverse(int N) {
+    if (N > 0) {
+        printf("%d ", 2 * N);
+        printEvenNaturalNumInReverse(N - 1);
     }
 }
