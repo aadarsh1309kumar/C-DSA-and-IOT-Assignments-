@@ -1,43 +1,40 @@
-// 10. Write a function to print all prime factors of a given number. 
-// For example, if the number is 36 then your result should be 2, 2, 3, 3. (TSRN)
+// 10. Write a program in C to find the sum of the series 1! /1+2!/2+3!/3+4!/4+5!/5 using the function.
 #include<stdio.h>
-void primeFactor(int);
+
+// function declaration
+int factorial(int);
+int sumOfSeries(int);
+
+// main function
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printf("Prime factors of %d are: ", num);
-    primeFactor(num);
-    // printf("End");(For debbugging)
+    printf("Sum of ");
+    for (int i = 1; i <= num; i++) {
+        if (i < num)
+            printf("%d!/%d + ", i, i);
+        else
+            printf("%d!/%d ", i, i);
+    }
+    printf("= %d", sumOfSeries(num));
     return 0;
 }
-void primeFactor(int number) {
-    int flag = 0, temp, i;
-    while (number != 0) {
-        i = 2;
-        while (i <= number) {
-            flag = 0;
-            for (int j = 2; j <= i / 2; j++) {
-                if (!(i % j)) {
-                    flag++;
-                    break;
-                }
-            }
-            if (!(flag == 1)) { // i is prime
-                if (number % i == 0) {
-                    printf("%d, ", i);
-                    temp = i;
-                    break;
-                }
-                else {
-                    i++;
-                }
-            }
-            else {
-                i++;
-            }
-        }
-        number = number / temp;
-        // printf("\nNew number is %d\n", number); (For debbugging)
+
+//  Factorial Function
+int factorial(int number) {
+    int product = 1;
+    for (int i = 2;i <= number - 1; i++) {
+        product *= i;
     }
+    return product;
+}
+
+//  Sum of Series Function
+int sumOfSeries(int num) {
+    int sum = 0;
+    for (int i = 1; i <= num; i++) {
+        sum = sum + factorial(i);
+    }
+    return sum;
 }

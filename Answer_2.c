@@ -1,13 +1,21 @@
-// 2. Write a function to calculate simple interest. (TSRS)
+// 2. Write a function to calculate HCF of two numbers. (TSRS)
 #include<stdio.h>
-float simpleIntrest(int, int, int);
+int hcf(int, int);
 int main() {
-    int p, t, r;
-    printf("Enter Principle, time and Rate of intrest: ");
-    scanf("%d %d %d", &p, &t, &r);
-    printf("Simple intrest is %.2f", simpleIntrest(p,t,r));
+    int num1, num2;
+    printf("Enter two number: ");
+    scanf("%d %d", &num1, &num2);
+    printf("HCF of %d and %d is %d", num1, num2, hcf(num1, num2));
     return 0;
 }
-float simpleIntrest(int p, int t, int r) {
-    return (p * t * r) / 100;
+// Function to find HCF of two number
+int hcf(int num1, int num2) {
+    int i;
+    int min = num1 < num2 ? num1 : num2;
+    for (i = min; i >= 1; i--) {
+        if ((num1 % i == 0) && (num2 % i == 0)) {
+            break;
+        }
+    }
+    return i;
 }

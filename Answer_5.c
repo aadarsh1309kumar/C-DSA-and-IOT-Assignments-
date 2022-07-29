@@ -1,15 +1,32 @@
-// 5. Write a function to print first N odd natural numbers. (TSRN)
+// 5. Write a function to print first N prime numbers (TSRN)
 #include<stdio.h>
-void printOddNaturalNumber(int);
+
+// function declaration 
+void printFirstNPrimeNumber(int);
+
 int main() {
     int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printOddNaturalNumber(num);
+    printFirstNPrimeNumber(num);
     return 0;
 }
-void printOddNaturalNumber(int num) {
-    for(int i=1; i<=num; i++) {
-        printf("%d ", 2*i-1);
+
+void printFirstNPrimeNumber(int number)
+{
+    int temp = 0, i = 2, j;
+    while (number >= 1) {
+        temp = 0;
+        for (j = 2; j < i; j++) {
+            if (!(i % j)) {
+                temp++;
+                break;
+            }
+        }
+        if (!(temp == 1)) {
+            printf("%d ", i);
+            number--;
+        }
+        i++;
     }
 }

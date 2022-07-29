@@ -1,30 +1,18 @@
-// 9. Write a function to check whether a given number contains a given digit or not. (TSRS)
+// 9. Write a program in C to find the square of any number using the function.
 #include<stdio.h>
-int numberChek(int, int);
+
+// function declaration
+int squareFunction(int);
+
+// main funtion
 int main() {
-    int num, digit;
+    int num;
     printf("Enter a number: ");
     scanf("%d", &num);
-    printf("Enter a digit: ");
-    scanf("%d", &digit);
-
-    if(numberChek(num, digit)) {
-        printf("%d contains the digit %d", num, digit);
-    } else {
-        printf("%d does not contains the digit %d", num, digit);
-    }
+    printf("Square of %d is %d", num, squareFunction(num));
     return 0;
 }
-//  The function to check the digit present or not
-int numberChek(int number, int digit) {
-    int flag = 0, rem;
-    while (number != 0) {
-        rem = number % 10;
-        if (digit == rem) {
-            flag++;
-            break;
-        }
-        number = number / 10;
-    }
-    return flag;
+//  function srart
+int squareFunction(int num) {
+    return num*num;
 }

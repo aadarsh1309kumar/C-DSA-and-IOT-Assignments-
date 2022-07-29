@@ -1,17 +1,31 @@
-// 6. Write a function to calculate the factorial of a number. (TSRS)
+// 6. Write a function to print all Prime numbers between two given numbers. (TSRN)
 #include<stdio.h>
-int factorial(int);
+
+//  Function declaration
+void printPrimeNumbersBetTwoGivenNum(int, int);
+
+// main function
 int main() {
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    printf("Factorial of %d is %d", num, factorial(num));
+    int num1,num2;
+    printf("Enter two number: ");
+    scanf("%d %d", &num1, &num2);
+    printPrimeNumbersBetTwoGivenNum(num1,num2);
     return 0;
 }
-int factorial(int num) {
-    int fact = 1;
-    for(int i=1; i<=num; i++) {
-        fact *= i;
+
+//  function creation
+void printPrimeNumbersBetTwoGivenNum(int num1, int num2) {
+    int flag = 0, i, j;
+    for (i = num1 + 1; i < num2; i++) {
+        flag = 0;
+        for (j = 2; j < i; j++) {
+            if (!(i % j)) {
+                flag++;
+                break;
+            }
+        }
+        if (!(flag == 1)) {
+            printf("%d ", i);
+        }
     }
-    return fact;
 }

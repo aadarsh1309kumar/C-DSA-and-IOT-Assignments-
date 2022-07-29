@@ -1,13 +1,20 @@
-// 1. Write a function to calculate the area of a circle. (TSRS)
+// 1. Write a function to calculate LCM of two numbers. (TSRS)
 #include<stdio.h>
-float areaOfCircle(int);
+int lcm(int, int);
 int main() {
-    int radius;
-    printf("Enter the radius: ");
-    scanf("%d", &radius);
-    printf("The area if %.2f", areaOfCircle(radius));
+    int num1, num2;
+    printf("Enter two number: ");
+    scanf("%d %d", &num1, &num2);
+    printf("LCM of %d and %d is %d", num1, num2, lcm(num1, num2));
     return 0;
 }
-float areaOfCircle(int radius) {
-    return 3.141*radius*radius;
+// Function to find LCM of two number
+int lcm(int num1, int num2) {
+    int i;
+    for (i = 1;i <= num1 * num2; i++) {
+        if ((i % num1 == 0) && (i % num2 == 0)) {
+            break;
+        }
+    }
+    return i;
 }
