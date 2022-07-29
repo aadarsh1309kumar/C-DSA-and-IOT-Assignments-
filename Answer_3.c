@@ -1,37 +1,22 @@
-// 3. Write a program which takes the day number of a week and displays a
-// unique greeting message for the day.
+// Write a function to check whether a given number is even or odd. Return 1 if the number is even,
+//  otherwise return 0. (TSRS)
 #include<stdio.h>
+int evenOdd(int);
 int main() {
-    int a;
-    printf("Enter the day number: ");
-    scanf("%d",&a);
-
-    switch(a) {
-        case 1:
-            printf("Hello, Sunday");
-            break;
-        case 2:
-            printf("Hello, Monday");
-            break;
-        case 3:
-            printf("Hello, Tuesday");
-            break;
-        case 4:
-            printf("Hello, Wednesday");
-            break;
-        case 5:
-            printf("Hello, Thusday");
-            break;
-        case 6:
-            printf("Hello, Friday");
-            break;
-        case 7:
-            printf("Hello, Saturdady");
-            break;
-
-        default:
-            printf("Enter a valid day number");
-            break;
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (evenOdd(num)) {
+        printf("%d is an even number", num);
+    }
+    else {
+        printf("%d is an odd number", num);
     }
     return 0;
+}
+int evenOdd(int num) {
+    if (num & 1 == 1)
+        return 0;
+    else
+        return 1;
 }

@@ -1,33 +1,43 @@
-// 10. C program to find all roots of a quadratic equation using switch case
+// 10. Write a function to print all prime factors of a given number. 
+// For example, if the number is 36 then your result should be 2, 2, 3, 3. (TSRN)
 #include<stdio.h>
-#include<math.h>
+void primeFactor(int);
 int main() {
-    int a, b, c, D;
-    int root1=0, root2=0;
-
-    printf("Enter the value of a,b and c of a quadratic equation: ");
-    scanf("%d %d %d", &a, &b, &c);
-    D = (b * b) - (4 * a * c);
-    switch (D > 0)
-    {
-    case 1:
-        root1 = (-b + sqrt(D)) / (2 * a);
-        root2 = (-b - sqrt(D)) / (2 * a);
-        break;
-    case 0: switch (D < 0)
-    {
-    case 1:
-        root1 = (-b + sqrt(abs(D))) / (2 * a);
-        root2 = (-b - sqrt(abs(D))) / (2 * a);
-        break;
-    case 0:
-        root1 = -b / (2 * a);
-        root2 = -b / (2 * a);
-    }
-    default:
-        break;
-    }
-    printf("Roots are %d and %d", root1, root2);
-
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Prime factors of %d are: ", num);
+    primeFactor(num);
+    // printf("End");(For debbugging)
     return 0;
+}
+void primeFactor(int number) {
+    int flag = 0, temp, i;
+    while (number != 0) {
+        i = 2;
+        while (i <= number) {
+            flag = 0;
+            for (int j = 2; j <= i / 2; j++) {
+                if (!(i % j)) {
+                    flag++;
+                    break;
+                }
+            }
+            if (!(flag == 1)) { // i is prime
+                if (number % i == 0) {
+                    printf("%d, ", i);
+                    temp = i;
+                    break;
+                }
+                else {
+                    i++;
+                }
+            }
+            else {
+                i++;
+            }
+        }
+        number = number / temp;
+        // printf("\nNew number is %d\n", number); (For debbugging)
+    }
 }

@@ -1,34 +1,17 @@
-// 6. Program to check whether a year is a leap year or not. Using switch
-// statement
+// 6. Write a function to calculate the factorial of a number. (TSRS)
 #include<stdio.h>
+int factorial(int);
 int main() {
-    int year;
-    printf("Enter a Year: ");
-    scanf("%d", &year);
-    switch (year % 100 == 0) {
-    case 1:
-        //  For century leaf year
-        switch (year % 400 == 0)
-        {
-        case 1:
-            printf("%d is a leap year", year);
-            break;
-        case 0:
-            printf("%d is not a leaf year", year);
-            break;
-        }
-        break;
-        //  For non-century leaf year
-    case 0:
-        switch (year % 4 == 0)
-        {
-        case 1:
-            printf("%d is a leaf year", year);
-            break;
-        case 0:
-            printf("%d is not a leaf year", year);
-            break;
-        }
-    }
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Factorial of %d is %d", num, factorial(num));
     return 0;
+}
+int factorial(int num) {
+    int fact = 1;
+    for(int i=1; i<=num; i++) {
+        fact *= i;
+    }
+    return fact;
 }
